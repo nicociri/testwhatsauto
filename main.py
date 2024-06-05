@@ -18,7 +18,8 @@ async def receive_message(message: Message):
     # Aquí puedes procesar el mensaje como necesites
     try:
         # Por ejemplo, imprimir el mensaje recibido
-        print(f"Message from {message.sender}: {message.message} at {message.phone}")
+        print(f"Mensaje de {message.sender}: {message.message} at {message.phone}")
+        print (message)
         return {"reply": f"Hola {message.sender}!"}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
