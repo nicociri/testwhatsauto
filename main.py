@@ -24,9 +24,7 @@ async def receive_message(
     sender: str = Form(...),
     message: str = Form(...),
     group_name: str = Form(None),
-    phone: str = Form(...),
-    timestamp: str = Form(datetime.now().isoformat()),
-    db: Session = Depends(get_db)
+    phone: str = Form(...)    
 ):
     try:
         timestamp = datetime.fromisoformat(timestamp)
@@ -36,6 +34,7 @@ async def receive_message(
         
         if last_message:
             # Verificar la diferencia de tiempo
+            timestamp = datetime.now().isoformat()
             time_diff = timestamp - last_message.timestamp
             if time_diff > timedelta(hours=1):
                 # Borrar todo el historial del sender
