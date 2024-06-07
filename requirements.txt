@@ -1,1 +1,1 @@
-fastapi[all]
+fastapi[all] sqlalchemy psycopg2
