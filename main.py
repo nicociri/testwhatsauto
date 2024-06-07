@@ -24,8 +24,9 @@ async def receive_message(
     sender: str = Form(...),
     message: str = Form(...),
     group_name: str = Form(None),
-    phone: str = Form(...)    
+    phone: str = Form(None)    
 ):
+    
     try:
         timestamp = datetime.fromisoformat(timestamp)
         
